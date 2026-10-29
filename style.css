@@ -94,3 +94,6 @@ footer{text-align:center;color:var(--muted);padding:40px 0}
 .quote blockquote p{color:var(--text)}.quote blockquote p::before{content:"“"}.quote blockquote p::after{content:"”"}
 .quote figcaption{color:var(--muted);font-size:15px}.quote figcaption b{color:var(--text)}
 .repos{display:flex;flex-wrap:wrap;gap:8px}
+.cols3{grid-template-columns:repeat(3,1fr)}
+code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(255,255,255,.1);padding:1px 6px;border-radius:6px}
+@media (max-width:760px){.cols3{grid-template-columns:1fr}}

@@ -28,6 +28,7 @@
     <a href="#about" data-i18n="nav.about">Sobre mí</a>
     <a href="#experience" data-i18n="nav.exp">Experiencia</a>
     <a href="#projects" data-i18n="nav.projects">Proyectos</a>
+    <a href="#ai" data-i18n="nav.ai">IA</a>
     <a href="#stack" data-i18n="nav.stack">Stack</a>
     <a href="#contact" data-i18n="nav.contact">Contacto</a>
   </nav>
@@ -138,17 +139,51 @@
       <ul class="chips small"><li>Java 21</li><li>Spring Boot</li><li>JPA</li><li>Flyway</li><li>MariaDB</li><li>Testcontainers</li><li>Angular 20</li></ul>
       <p class="repos"><a class="pill link" href="https://github.com/Tag-Me-DAW2/bank-backend" rel="noopener">bank-backend ↗</a> <a class="pill link" href="https://github.com/Tag-Me-DAW2/store-backend" rel="noopener">store-backend ↗</a> <a class="pill link" href="https://github.com/Tag-Me-DAW2/bank-frontend" rel="noopener">bank-frontend ↗</a> <a class="pill link" href="https://github.com/Tag-Me-DAW2/store-client-frontend" rel="noopener">store-client ↗</a> <a class="pill link" href="https://github.com/Tag-Me-DAW2/store-admin-frontend" rel="noopener">store-admin ↗</a></p>
     </article>
+  </section>
 
-    <div class="grid">
-      <article class="card glass project">
-        <header>
-          <h3 data-i18n="proj.auto.h">Automatización personal</h3>
-          <span class="pill" data-i18n="proj.auto.priv">Uso personal</span>
-        </header>
-        <p data-i18n="proj.auto.desc">Scripts y herramientas que me ahorran trabajo: resúmenes y avisos de tareas, calendario y un vault de notas replicable en cualquier máquina con un solo script.</p>
-        <ul class="chips small"><li>Python</li><li>Shell</li><li>Linux</li><li>Git</li></ul>
-      </article>
-    </div>
+  <section id="ai" class="block">
+    <h2 data-i18n="ai.h">IA aplicada</h2>
+    <article class="card glass project">
+      <header>
+        <h3>Aules Digest <small data-i18n="ai.tag">Sistema de agentes con Claude Code</small></h3>
+        <span class="pill" data-i18n="ai.priv">Código privado · uso personal</span>
+      </header>
+      <p data-i18n="ai.lead">Un sistema que automatiza mi día a día académico con agentes de IA y con el que he aprendido a usarla con control: especificaciones, validación y límites claros.</p>
+      <div class="cols cols3">
+        <div>
+          <h4 data-i18n="ai.c1">Qué hace</h4>
+          <ul class="list">
+            <li data-i18n="ai.c1.1">Resumen diario al móvil de entregas, lecturas y fechas de cada asignatura, redactado con Claude a partir de la API de Moodle.</li>
+            <li data-i18n="ai.c1.2">Publica las tareas con fecha en Google Calendar, un calendario por asignatura.</li>
+            <li data-i18n="ai.c1.3">Prepara el entorno de cada tarea (repo, material, enunciado) y genera apuntes con tarjetas Anki por unidad.</li>
+            <li data-i18n="ai.c1.4">Se ejecuta solo con un temporizador de systemd.</li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="ai.c2">Cómo uso la IA</h4>
+          <ul class="list">
+            <li data-i18n="ai.c2.1">Desarrollo guiado por especificaciones: mandan sobre el código, y cada tarea lleva un brief y un checklist de aceptación verificable.</li>
+            <li data-i18n="ai.c2.2">Agentes especializados (preparar repo, descargar material, entorno, apuntes, validar, publicar) y skills reutilizables para cada flujo.</li>
+            <li data-i18n="ai.c2.3">Agentes por nivel de complejidad (búsqueda, redacción, razonamiento) para no gastar más de lo necesario.</li>
+            <li data-i18n="ai.c2.4">Lo determinista primero: los scripts comprueban lo comprobable y el modelo solo contrasta lo semántico.</li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="ai.c3">Salvaguardas</h4>
+          <ul class="list">
+            <li data-i18n="ai.c3.1">Puerta de publicación: validación automática, un segundo agente validador independiente (máximo 3 rondas) y pull request. La IA nunca hace push a main ni merge propio.</li>
+            <li data-i18n="ai.c3.2">Credenciales solo en <code>.env</code>, fuera de git y de los logs; el texto de la plataforma se trata como no fiable (inyección de prompts).</li>
+            <li data-i18n="ai.c3.3">Entregar las tareas por mí queda fuera del diseño.</li>
+          </ul>
+        </div>
+      </div>
+      <ul class="chips small"><li>Claude Code</li><li>Python</li><li>systemd</li><li>Moodle API</li><li>Google Calendar API</li><li>Anki</li></ul>
+    </article>
+    <article class="card glass project">
+      <h3 data-i18n="ai.env.h">Un entorno que se replica</h3>
+      <p data-i18n="ai.env.p">Todos mis proyectos se mapean en un vault de Obsidian y comparten un contexto global para Claude Code. Un script clona los repos y monta los enlaces en un PC nuevo, y cada cambio de configuración actualiza también el mapa de su proyecto.</p>
+      <ul class="chips small"><li>Obsidian</li><li>Git</li><li>Bash</li><li>Arch Linux</li></ul>
+    </article>
   </section>
 
   <section id="stack" class="block">
