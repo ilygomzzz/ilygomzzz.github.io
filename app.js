@@ -13,6 +13,10 @@ const T = {
     "about.p3":"Outside work I automate whatever I can and run my own Arch Linux. Yes, on purpose.",
     "about.f1k":"Education","about.f1v":"Higher Vocational Web Dev · CIPFP Mislata (2024–26)","about.f5k":"Before","about.f5v":"Networking · IES La Sénia (2022–24)",
     "about.f2k":"Location","about.f2v":"Valencia, Spain","about.f4k":"Languages","about.f4v":"Spanish · English B1–B2",
+    "tr.1h":"Proactive","tr.1":"When I see something that can be improved, I flag it and propose a fix, without waiting to be asked.",
+    "tr.2h":"Self-taught","tr.2":"I keep learning constantly: whatever the project needs and I don't know yet, I look it up, try it and master it.",
+    "tr.3h":"I grow with the project","tr.3":"I love learning and growing within a project: from Bash to PHP on CRMs, and now Java with Spring Boot.",
+    "tr.4h":"I solve and add value","tr.4":"I look for the cause, not the symptom, and leave things better than I found them: integrations, migrations and alerts.",
     "exp.h":"Where I've worked",
     "exp.1.role":"Java Developer","exp.1.date":"Jul 2026 – present","exp.1.desc":"Java with Spring Boot across several backend layers.",
     "exp.1.l1":"Batch processes that consume REST and SOAP services, process the data and persist it in a database.",
@@ -57,7 +61,7 @@ const T = {
     "ai.p.c2.3":"Nothing is done until it's verified in the live session with a screenshot.",
     "ai.p.c2.4":"An Obsidian vault links all my projects and works as a browsable memory.",
     "contact.h":"Shall we talk?","contact.p":"Open to offers of any kind. Write to me and we'll talk over a coffee.",
-    "foot":"© 2026 Javier Serrano Gómez · Handmade, no frameworks."
+    "foot":"© 2026 Javier Serrano Gómez"
   }
 };
 const meta = document.querySelector('meta[name="description"]');
@@ -88,9 +92,7 @@ btn.onclick = () => setLang(document.documentElement.lang === "es" ? "en" : "es"
 const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }), { threshold: .12 });
 document.querySelectorAll(".card,.timeline>li,.quote,.stack div").forEach(e => { e.classList.add("reveal"); io.observe(e); });
 
-// barra de progreso y enlace activo de la navegación
-const bar = document.getElementById("progress");
-addEventListener("scroll", () => bar.style.transform = `scaleX(${scrollY / (document.documentElement.scrollHeight - innerHeight || 1)})`, { passive: true });
+// enlace activo de la navegación
 const links = [...document.querySelectorAll(".nav nav a")];
 const spy = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) links.forEach(a => a.toggleAttribute("aria-current", a.hash === "#" + x.target.id)); }), { rootMargin: "-40% 0px -55% 0px" });
 document.querySelectorAll("main>section[id]").forEach(s => spy.observe(s));
