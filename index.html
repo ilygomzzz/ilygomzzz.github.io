@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Javier Serrano · Backend Java/Spring</title>
+<meta name="description" content="Desarrollador backend Java/Spring. Arquitectura hexagonal, APIs REST, integraciones y 3 años de experiencia.">
+<meta name="theme-color" content="#07080f">
+<meta property="og:title" content="Javier Serrano · Backend Java/Spring">
+<meta property="og:description" content="Portfolio de Javier Serrano Gómez: Spring Boot, Angular y proyectos en equipo.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080f'/%3E%3Ctext x='32' y='43' font-size='32' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EJS%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <filter id="refract" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="2" seed="4" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<header class="nav glass" id="top">
+  <a class="brand" href="#top" aria-label="Javier Serrano">JS</a>
+  <nav aria-label="Principal">
+    <a href="#about" data-i18n="nav.about">Sobre mí</a>
+    <a href="#experience" data-i18n="nav.exp">Experiencia</a>
+    <a href="#projects" data-i18n="nav.projects">Proyectos</a>
+    <a href="#stack" data-i18n="nav.stack">Stack</a>
+    <a href="#contact" data-i18n="nav.contact">Contacto</a>
+  </nav>
+  <button class="lang" id="lang" type="button" aria-label="Change language">EN</button>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <p class="eyebrow" data-i18n="hero.eyebrow">Desarrollador Java · Valencia</p>
+    <h1>Javier Serrano <span class="grad">Gómez</span></h1>
+    <p class="lead" data-i18n="hero.lead">Desarrollador backend con 3 años de experiencia: de CRMs a medida en PHP a APIs en Java con arquitectura hexagonal, integraciones y endpoints REST.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects" data-i18n="hero.cta1">Ver proyectos</a>
+      <a class="btn glass" href="mailto:javier.sego04@gmail.com" data-i18n="hero.cta2">Escríbeme</a>
+      <a class="btn glass" href="cv.pdf" id="cv" hidden data-i18n="hero.cv">Descargar CV</a>
+    </div>
+    <ul class="chips" aria-label="Stack principal">
+      <li>Java 21</li><li>Spring Boot 3</li><li>PHP</li><li>MySQL · MariaDB</li><li>Scrum</li><li>Angular</li>
+    </ul>
+  </section>
+
+  <section id="about" class="block">
+    <h2 data-i18n="about.h">Sobre mí</h2>
+    <div class="grid two">
+      <article class="card glass">
+        <p data-i18n="about.p1">Desarrollador de software con experiencia en backend, desde sistemas CRM a medida en PHP, JavaScript (jQuery) y MySQL hasta el diseño de APIs bajo arquitectura hexagonal con programación orientada a objetos.</p>
+        <p data-i18n="about.p2">Ahora desarrollo en Java en distintas capas del backend: endpoints REST, integraciones y demás componentes del ecosistema. Trabajo en entornos ágiles con Scrum y colaboro en proyectos de producto.</p>
+      </article>
+      <article class="card glass facts">
+        <dl>
+          <div><dt data-i18n="about.f1k">Formación</dt><dd data-i18n="about.f1v">CFGS DAW · CIPFP Mislata (2024–26)</dd></div>
+          <div><dt data-i18n="about.f2k">Ubicación</dt><dd data-i18n="about.f2v">Valencia, España</dd></div>
+          <div><dt data-i18n="about.f3k">Entorno</dt><dd data-i18n="about.f3v">Linux (Arch) · Git · Maven</dd></div>
+        </dl>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience" class="block">
+    <h2 data-i18n="exp.h">Experiencia</h2>
+    <ol class="timeline">
+      <li class="card glass">
+        <header><h3>Adding Technology S.A. <small data-i18n="exp.1.role">Desarrollador Java</small></h3><span class="pill" data-i18n="exp.1.date">Jun 2026 – actualidad</span></header>
+        <p data-i18n="exp.1.desc">Desarrollo en Java sobre distintas capas del backend: endpoints REST, integraciones y componentes del ecosistema, en un equipo ágil con Scrum.</p>
+      </li>
+      <li class="card glass">
+        <header><h3>Grupo Casfid <small data-i18n="exp.2.role">Desarrollador backend · prácticas</small></h3><span class="pill" data-i18n="exp.2.date">Abr – Jun 2026</span></header>
+        <p data-i18n="exp.2.desc">Equipo de la plataforma de ticketing, control de accesos y cashless, en producción durante eventos reales. Más de treinta tareas cerradas en tres meses.</p>
+        <ul class="list">
+          <li data-i18n="exp.2.l1">Evolutivos del panel backend cashless: recargas y paquetes de saldo, productos e impuestos, aforos y permisos por rol.</li>
+          <li data-i18n="exp.2.l2">Diseño e implementación de endpoints de integración (aforos, accesos, eventos por promotor) con los equipos móviles que los consumen.</li>
+          <li data-i18n="exp.2.l3">Validación de la migración del almacenamiento de imágenes de EC2 a Amazon S3 mediante una abstracción por interfaz.</li>
+          <li data-i18n="exp.2.l4">Alerta automática ante franjas horarias solapadas, resolviendo la causa y no solo el síntoma.</li>
+          <li data-i18n="exp.2.l5">Internacionalización del panel, documentación, revisión de código y soporte técnico durante eventos.</li>
+        </ul>
+      </li>
+      <li class="card glass">
+        <header><h3>Quesada.IT CRM <small data-i18n="exp.3.role">Desarrollador web</small></h3><span class="pill" data-i18n="exp.3.date">Jul 2023 – Oct 2025</span></header>
+        <p data-i18n="exp.3.desc">Funcionalidades para sistemas CRM a medida con PHP, JavaScript (jQuery) y MySQL, implementando los requisitos de cada proyecto.</p>
+        <ul class="chips small"><li>PHP</li><li>jQuery</li><li>MySQL</li></ul>
+      </li>
+    </ol>
+  </section>
+
+  <section id="refs" class="block">
+    <h2 data-i18n="ref.h">Referencias</h2>
+    <figure class="card glass quote">
+      <blockquote>
+        <p data-i18n="ref.q1">Asumió trabajo real de producto desde muy pronto y cerró más de treinta tareas en apenas tres meses.</p>
+        <p data-i18n="ref.q2">Su autonomía, su fiabilidad y su criterio: preguntaba por el porqué de las cosas y proponía alternativas en lugar de ejecutar la primera solución planteada.</p>
+        <p data-i18n="ref.q3">Cualquier organización que lo incorpore ganará a un profesional serio, capaz y con mucho recorrido por delante.</p>
+      </blockquote>
+      <figcaption><b>Oscar Mestre</b> · Engineering Manager, Fever | Casfid <span data-i18n="ref.cap">· Carta de recomendación, septiembre de 2026. Disponible bajo petición.</span></figcaption>
+    </figure>
+  </section>
+
+  <section id="projects" class="block">
+    <h2 data-i18n="proj.h">Proyectos</h2>
+
+    <article class="card glass project">
+      <header>
+        <h3>Tag-Me <small data-i18n="proj.tm.tag">Banco + tienda · trabajo en equipo</small></h3>
+        <span class="pill" data-i18n="proj.tm.priv">Código abierto · en equipo</span>
+      </header>
+      <p data-i18n="proj.tm.desc">Dos backends Spring Boot que se hablan por HTTP: una tienda online que cobra con tarjeta contra una API bancaria propia, con sus frontends en Angular.</p>
+      <div class="cols">
+        <div>
+          <h4 data-i18n="proj.problem">Reto</h4>
+          <p data-i18n="proj.tm.problem">Separar el dominio de la infraestructura para poder cambiar la base de datos o el cliente HTTP sin tocar las reglas de negocio, y probar el pago sin depender del banco real.</p>
+        </div>
+        <div>
+          <h4 data-i18n="proj.solution">Solución</h4>
+          <ul>
+            <li data-i18n="proj.tm.s1">Capas controller · usecase · domain · persistence, con repositorios como interfaces del dominio.</li>
+            <li data-i18n="proj.tm.s2">Autenticación con JWT, contraseñas con hash (password4j) y validación de entrada.</li>
+            <li data-i18n="proj.tm.s3">Migraciones con Flyway y tests de integración con Testcontainers (MariaDB).</li>
+            <li data-i18n="proj.tm.s4">Módulo de integración propio en la tienda para pagos y cliente HTTP, aislado y testeable.</li>
+          </ul>
+        </div>
+      </div>
+      <ul class="chips small"><li>Java 21</li><li>Spring Boot</li><li>JPA</li><li>Flyway</li><li>MariaDB</li><li>Testcontainers</li><li>Angular 20</li></ul>
+      <p class="repos"><a class="pill link" href="https://github.com/Tag-Me-DAW2/bank-backend" rel="noopener">bank-backend ↗</a> <a class="pill link" href="https://github.com/Tag-Me-DAW2/store-backend" rel="noopener">store-backend ↗</a> <a class="pill link" href="https://github.com/Tag-Me-DAW2/bank-frontend" rel="noopener">bank-frontend ↗</a> <a class="pill link" href="https://github.com/Tag-Me-DAW2/store-client-frontend" rel="noopener">store-client ↗</a> <a class="pill link" href="https://github.com/Tag-Me-DAW2/store-admin-frontend" rel="noopener">store-admin ↗</a></p>
+    </article>
+
+    <div class="grid two">
+      <article class="card glass project">
+        <header>
+          <h3>SUD en Bash <small data-i18n="proj.sud.tag">Mis primeros pasos programando</small></h3>
+          <a class="pill link" href="https://github.com/ilygomzzz/SUD-BASH-Javier" rel="noopener">GitHub ↗</a>
+        </header>
+        <p data-i18n="proj.sud.desc">Un juego de rol de texto en Bash (unas 2.500 líneas): mundo con zonas, enemigos y botín guardados en SQLite, arte ASCII y música. El código publicado es una versión anterior a la final, que se perdió.</p>
+        <ul class="chips small"><li>Bash</li><li>SQLite</li><li>Linux</li></ul>
+      </article>
+      <article class="card glass project">
+        <header>
+          <h3 data-i18n="proj.auto.h">Automatización personal</h3>
+          <span class="pill" data-i18n="proj.auto.priv">Uso personal</span>
+        </header>
+        <p data-i18n="proj.auto.desc">Scripts y herramientas que me ahorran trabajo: resúmenes y avisos de tareas, calendario y un vault de notas replicable en cualquier máquina con un solo script.</p>
+        <ul class="chips small"><li>Python</li><li>Shell</li><li>Linux</li><li>Git</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="stack" class="block">
+    <h2 data-i18n="stack.h">Stack</h2>
+    <div class="grid three">
+      <article class="card glass"><h3>Backend</h3><p>Java 21 · Spring Boot · Spring Data JPA · JWT · Flyway · PHP</p></article>
+      <article class="card glass"><h3>Frontend</h3><p>Angular · AngularJS · TypeScript · JavaScript · jQuery</p></article>
+      <article class="card glass"><h3 data-i18n="stack.tools">Datos y herramientas</h3><p>MySQL · MariaDB · Testcontainers · Git · Bitbucket · Maven · Linux</p></article>
+    </div>
+  </section>
+
+  <section id="contact" class="block contact">
+    <div class="card glass big">
+      <h2 data-i18n="contact.h">Hablemos</h2>
+      <p data-i18n="contact.p">¿Un proyecto, una oportunidad o una duda técnica? Escríbeme.</p>
+      <div class="cta center">
+        <a class="btn primary" href="mailto:javier.sego04@gmail.com">javier.sego04@gmail.com</a>
+        <a class="btn glass" href="https://www.linkedin.com/in/javier-serrano-g%C3%B3mez-5b5916298/" rel="noopener">LinkedIn ↗</a>
+        <a class="btn glass" href="https://github.com/ilygomzzz" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><small>© 2026 Javier Serrano Gómez</small></footer>
+<script src="app.js"></script>
+</body>
+</html>
