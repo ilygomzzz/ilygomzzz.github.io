@@ -16,6 +16,7 @@
 <body>
 <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
 <header class="nav" id="top">
   <a class="brand" href="#top" aria-label="Javier Serrano">js<i>.</i></a>
   <nav aria-label="Principal" data-i18n-aria="nav.aria">
@@ -25,7 +26,7 @@
     <a href="#ai" data-i18n="nav.ai">IA</a>
     <a href="#contact" data-i18n="nav.contact">Contacto</a>
   </nav>
-  <button class="lang" id="lang" type="button" lang="en" title="Switch to English">EN</button>
+  <button class="lang" id="lang" type="button" aria-label="Español / English" title="Switch to English"><span>ES</span><span>EN</span></button>
 </header>
 
 <main id="main">
@@ -41,6 +42,8 @@
       <a class="btn" href="https://www.linkedin.com/in/javier-serrano-g%C3%B3mez-5b5916298/" rel="noopener">LinkedIn ↗</a>
     </div>
   </section>
+
+  <div class="marquee" aria-hidden="true"><div class="track"><span>Java 21</span><span>Spring Boot</span><span>Spring Data JPA</span><span>REST</span><span>SOAP</span><span>OAuth2</span><span>JWT</span><span>Flyway</span><span>Angular</span><span>MySQL</span><span>Docker</span><span>AWS</span><span>Linux</span><span>Java 21</span><span>Spring Boot</span><span>Spring Data JPA</span><span>REST</span><span>SOAP</span><span>OAuth2</span><span>JWT</span><span>Flyway</span><span>Angular</span><span>MySQL</span><span>Docker</span><span>AWS</span><span>Linux</span></div></div>
 
   <section id="about" class="block">
     <h2 data-n="01" data-i18n="about.h">Quién soy</h2>
@@ -115,6 +118,7 @@
         <a class="link" href="https://github.com/Tag-Me-DAW2/store-backend" rel="noopener">GitHub ↗</a>
       </header>
       <p data-i18n="proj.tm.desc">Dos backends Spring Boot que se hablan por HTTP: una tienda online que cobra con tarjeta contra una API bancaria propia, con sus frontends en Angular. Mi parte fue sobre todo el backend.</p>
+      <p class="chips"><span class="chip">Java 21</span><span class="chip">Spring Boot</span><span class="chip">JPA</span><span class="chip">Angular</span><span class="chip">MariaDB</span><span class="chip">Flyway</span><span class="chip">Testcontainers</span><span class="chip">JWT</span></p>
       <div class="cols">
         <div>
           <h4 data-i18n="proj.problem">Reto</h4>
@@ -137,34 +141,48 @@
   <section id="stack" class="block">
     <h2 data-n="04" data-i18n="stack.h">Con qué trabajo</h2>
     <dl class="stack">
-      <div><dt>Backend</dt><dd>Java 21 · Spring Boot · Spring Data JPA · REST · SOAP · OAuth2 · JWT · Flyway · PHP</dd></div>
-      <div><dt>Frontend</dt><dd>Angular · TypeScript · JavaScript</dd></div>
-      <div><dt data-i18n="stack.tools">Datos y herramientas</dt><dd>MySQL · MariaDB · Testcontainers · Docker · AWS (EC2, S3) · Git · Maven · Linux</dd></div>
+      <div><dt>Backend</dt><dd class="chips"><span class="chip">Java 21</span><span class="chip">Spring Boot</span><span class="chip">Spring Data JPA</span><span class="chip">REST</span><span class="chip">SOAP</span><span class="chip">OAuth2</span><span class="chip">JWT</span><span class="chip">Flyway</span><span class="chip">PHP</span></dd></div>
+      <div><dt>Frontend</dt><dd class="chips"><span class="chip">Angular</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span></dd></div>
+      <div><dt data-i18n="stack.tools">Datos y herramientas</dt><dd class="chips"><span class="chip">MySQL</span><span class="chip">MariaDB</span><span class="chip">Testcontainers</span><span class="chip">Docker</span><span class="chip">AWS (EC2, S3)</span><span class="chip">Git</span><span class="chip">Maven</span><span class="chip">Linux</span></dd></div>
     </dl>
   </section>
 
   <section id="ai" class="block">
-    <h2 data-n="05" data-i18n="ai.h">IA, con correa corta</h2>
+    <h2 data-n="05" data-i18n="ai.h">Agentes en la práctica</h2>
     <article class="card">
       <header>
-        <h3>Aules Digest <span data-i18n="ai.tag">Agentes con Claude Code · código privado</span></h3>
+        <h3>Aules Digest <span data-i18n="ai.tag">Orquestación de agentes · SDD · código privado</span></h3>
       </header>
-      <p data-i18n="ai.lead">Un sistema que me organiza el curso con agentes de IA. Claude escribe, pero no hace merge de lo suyo ni entrega mis tareas.</p>
+      <p data-i18n="ai.lead">Mi banco de pruebas para trabajar con agentes de forma ordenada: lee la API de Moodle, me resume el curso en el móvil, monta el entorno de cada tarea y genera apuntes con tarjetas Anki. Funciona solo, con un temporizador de systemd.</p>
+      <ol class="flow">
+        <li><b data-i18n="ai.f1h">Spec primero</b><p data-i18n="ai.f1" data-html>Cada pieza nace en un <code>specs/NN-*.md</code> con visión, no-objetivos y criterio de éxito. Cada tarea lleva un <code>BRIEF.md</code> y un <code>ACCEPTANCE.md</code> con checklist verificable.</p></li>
+        <li><b data-i18n="ai.f2h">Orquesto</b><p data-i18n="ai.f2">Una skill coordina agentes pequeños de un solo cometido (descargar, crear repo, montar entorno, redactar apuntes), cada uno con las herramientas mínimas y el modelo más barato que le sirve.</p></li>
+        <li><b data-i18n="ai.f3h">Valido</b><p data-i18n="ai.f3">Primero comprobaciones deterministas en Python (autor de git, secretos, tamaños, checklist completo). Después un agente validador independiente contrasta el brief con el material. Hasta 3 rondas.</p></li>
+        <li><b data-i18n="ai.f4h">Publico</b><p data-i18n="ai.f4">Con el PASS, otro agente abre la pull request y me manda el enlace al móvil. Las tareas con fecha acaban en Google Calendar, un calendario por asignatura.</p></li>
+      </ol>
+      <p class="chips"><span class="chip">Python</span><span class="chip">Claude Code</span><span class="chip">Moodle API</span><span class="chip">systemd</span><span class="chip">ntfy</span><span class="chip">Google Calendar</span><span class="chip">Anki</span></p>
+    </article>
+    <article class="card">
+      <header>
+        <h3>Personalization <span data-i18n="ai.p.tag">Dotfiles · Hyprland · Quickshell</span></h3>
+      </header>
+      <p data-i18n="ai.p.lead">Toda la configuración de mi Arch como repositorio reproducible, y el sitio donde afino cómo trabajo con Claude Code.</p>
       <div class="cols">
         <div>
-          <h4 data-i18n="ai.c1">Qué hace</h4>
+          <h4 data-i18n="ai.p.c1">Qué hay</h4>
           <ul>
-            <li data-i18n="ai.c1.1">Resumen diario al móvil de entregas y fechas, redactado con Claude a partir de la API de Moodle, y tareas en Google Calendar.</li>
-            <li data-i18n="ai.c1.2">Prepara el entorno de cada tarea (repo, material, enunciado) y genera apuntes con tarjetas Anki.</li>
-            <li data-i18n="ai.c1.3">Corre solo con un temporizador de systemd.</li>
+            <li data-i18n="ai.p.c1.1">Dotfiles con instalador y symlinks para clonar el PC entero.</li>
+            <li data-i18n="ai.p.c1.2">Gadgets propios en Quickshell/QML: calendario y tiempo de escritorio, barra superior y cristal con shaders GLSL.</li>
+            <li data-i18n="ai.p.c1.3">Google Calendar como hub entre PC e iPhone, con un CLI propio de OAuth y sincronización.</li>
           </ul>
         </div>
         <div>
-          <h4 data-i18n="ai.c2">Cómo lo controlo</h4>
+          <h4 data-i18n="ai.p.c2">Cómo lo organizo</h4>
           <ul>
-            <li data-i18n="ai.c2.1">Especificaciones primero: cada tarea lleva un brief y un checklist de aceptación verificable.</li>
-            <li data-i18n="ai.c2.2">Lo determinista antes que el modelo: los scripts comprueban lo comprobable y un segundo agente validador, independiente, contrasta el resto.</li>
-            <li data-i18n="ai.c2.3" data-html>Todo cambio va por pull request y la IA nunca hace push a main. Credenciales solo en <code>.env</code> y el texto de la plataforma se trata como no fiable.</li>
+            <li data-i18n="ai.p.c2.1" data-html>Un <code>CLAUDE.md</code> como fuente de verdad: cada cambio es una fila en la tabla, conocimiento en una skill y una nota en el vault.</li>
+            <li data-i18n="ai.p.c2.2">Skills por dominio (Hyprland, noctalia, diseño Quickshell) que se cargan según la tarea.</li>
+            <li data-i18n="ai.p.c2.3">Nada está hecho hasta verificarlo en la sesión viva con una captura.</li>
+            <li data-i18n="ai.p.c2.4">Un vault de Obsidian enlaza todos mis proyectos y sirve de memoria navegable.</li>
           </ul>
         </div>
       </div>

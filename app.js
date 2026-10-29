@@ -38,16 +38,23 @@ const T = {
     "proj.tm.s3":"Both: repositories as domain interfaces, hashed passwords (password4j) and Bean Validation.",
     "proj.tm.s4":"Flyway, DAO tests with Testcontainers (MariaDB) and the store's payment tested with mocks.",
     "stack.h":"What I work with","stack.tools":"Data & tools",
-    "ai.h":"AI, on a short leash","ai.tag":"Agents with Claude Code · private code",
-    "ai.lead":"A system that organises my coursework with AI agents. Claude writes, but it doesn't merge its own work or hand in my assignments.",
-    "ai.c1":"What it does",
-    "ai.c1.1":"Daily phone summary of deadlines and dates, written with Claude from the Moodle API, and tasks in Google Calendar.",
-    "ai.c1.2":"Prepares each task's environment (repo, material, brief) and generates notes with Anki cards.",
-    "ai.c1.3":"Runs on its own with a systemd timer.",
-    "ai.c2":"How I control it",
-    "ai.c2.1":"Specs first: each task carries a brief and a verifiable acceptance checklist.",
-    "ai.c2.2":"Deterministic before the model: scripts check whatever can be checked and an independent second validator agent judges the rest.",
-    "ai.c2.3":"Every change goes through a pull request and the AI never pushes to main. Credentials only in <code>.env</code>, and platform text is treated as untrusted.",
+    "ai.h":"Agents in practice","ai.tag":"Agent orchestration · SDD · private code",
+    "ai.lead":"My testbed for working with agents in an orderly way: it reads the Moodle API, summarises my courses on my phone, sets up each assignment's environment and generates notes with Anki cards. It runs on its own with a systemd timer.",
+    "ai.f1h":"Spec first","ai.f1":"Every piece starts as a <code>specs/NN-*.md</code> with vision, non-goals and success criteria. Every task carries a <code>BRIEF.md</code> and an <code>ACCEPTANCE.md</code> with a verifiable checklist.",
+    "ai.f2h":"I orchestrate","ai.f2":"A skill coordinates small single-purpose agents (fetch, create repo, set up environment, write notes), each with minimal tools and the cheapest model that does the job.",
+    "ai.f3h":"I validate","ai.f3":"First deterministic Python checks (git author, secrets, sizes, complete checklist). Then an independent validator agent checks the brief against the material. Up to 3 rounds.",
+    "ai.f4h":"I publish","ai.f4":"On PASS, another agent opens the pull request and sends me the link on my phone. Dated tasks end up in Google Calendar, one calendar per subject.",
+    "ai.p.tag":"Dotfiles · Hyprland · Quickshell",
+    "ai.p.lead":"My whole Arch configuration as a reproducible repository, and the place where I fine-tune how I work with Claude Code.",
+    "ai.p.c1":"What's in it",
+    "ai.p.c1.1":"Dotfiles with an installer and symlinks to clone the whole PC.",
+    "ai.p.c1.2":"Custom Quickshell/QML gadgets: desktop calendar and weather, top bar and glass with GLSL shaders.",
+    "ai.p.c1.3":"Google Calendar as a hub between PC and iPhone, with my own OAuth CLI and sync.",
+    "ai.p.c2":"How I organise it",
+    "ai.p.c2.1":"A <code>CLAUDE.md</code> as the source of truth: each change is a table row, knowledge in a skill and a note in the vault.",
+    "ai.p.c2.2":"Per-domain skills (Hyprland, noctalia, Quickshell design) loaded according to the task.",
+    "ai.p.c2.3":"Nothing is done until it's verified in the live session with a screenshot.",
+    "ai.p.c2.4":"An Obsidian vault links all my projects and works as a browsable memory.",
     "contact.h":"Shall we talk?","contact.p":"Open to offers of any kind. Write to me and we'll talk over a coffee.",
     "foot":"© 2026 Javier Serrano Gómez · Handmade, no frameworks."
   }
@@ -59,14 +66,17 @@ document.querySelectorAll("[data-i18n-aria]").forEach(e => es[e.dataset.i18nAria
 T.es = es;
 const btn = document.getElementById("lang");
 function setLang(l){
+  // al cambiar de idioma la altura del texto varía: se ancla la sección visible para que la página no salte
+  const secs = [...document.querySelectorAll("main>section")], a = secs.find(s => s.getBoundingClientRect().bottom > 80), y = a && a.getBoundingClientRect().top;
   document.documentElement.lang = l;
   // innerHTML solo en claves marcadas con data-html: el texto sale de este diccionario, nunca de datos externos
   document.querySelectorAll("[data-i18n]").forEach(e => { const v = T[l][e.dataset.i18n]; if (v) e[e.hasAttribute("data-html") ? "innerHTML" : "textContent"] = v; });
   document.querySelectorAll("[data-i18n-aria]").forEach(e => e.setAttribute("aria-label", T[l][e.dataset.i18nAria]));
   document.title = T[l]["meta.title"]; meta.content = T[l]["meta.desc"];
   const next = l === "es" ? "en" : "es";
-  btn.textContent = next.toUpperCase(); btn.lang = next; btn.title = next === "en" ? "Switch to English" : "Cambiar a español";
+  btn.title = next === "en" ? "Switch to English" : "Cambiar a español";
   try { localStorage.setItem("lang", l); } catch {}
+  if (a && scrollY) scrollBy({ top: a.getBoundingClientRect().top - y, behavior: "instant" });
 }
 let saved; try { saved = localStorage.getItem("lang"); } catch {}
 const start = saved || (navigator.language.startsWith("es") ? "es" : "en");
@@ -76,3 +86,10 @@ btn.onclick = () => setLang(document.documentElement.lang === "es" ? "en" : "es"
 // aparición al hacer scroll
 const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }), { threshold: .12 });
 document.querySelectorAll(".card,.timeline>li,.quote,.stack div").forEach(e => { e.classList.add("reveal"); io.observe(e); });
+
+// barra de progreso y enlace activo de la navegación
+const bar = document.getElementById("progress");
+addEventListener("scroll", () => bar.style.transform = `scaleX(${scrollY / (document.documentElement.scrollHeight - innerHeight || 1)})`, { passive: true });
+const links = [...document.querySelectorAll(".nav nav a")];
+const spy = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) links.forEach(a => a.toggleAttribute("aria-current", a.hash === "#" + x.target.id)); }), { rootMargin: "-40% 0px -55% 0px" });
+document.querySelectorAll("main>section[id]").forEach(s => spy.observe(s));
