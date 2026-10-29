@@ -1,14 +1,17 @@
 const T = {
   en: {
-    skip:"Skip to content","nav.about":"About","nav.projects":"Projects","nav.stack":"Stack","nav.contact":"Contact",
+    skip:"Skip to content","nav.about":"About","nav.refs":"References","nav.aria":"Main",
+    "meta.title":"Javier Serrano · Java/Spring Backend",
+    "meta.desc":"Java/Spring backend developer. Hexagonal architecture, REST APIs, integrations and 3 years of experience.",
+    "hero.chips":"Main stack","nav.projects":"Projects","nav.stack":"Stack","nav.contact":"Contact",
     "hero.eyebrow":"Java Developer · Valencia","nav.exp":"Experience",
     "hero.lead":"Backend developer with 3 years of experience: from custom PHP CRMs to Java APIs with hexagonal architecture, integrations and REST endpoints.",
     "hero.cta1":"See projects","hero.cta2":"Email me","hero.cv":"Download CV",
     "about.h":"About me",
     "about.p1":"Software developer with backend experience, from custom CRM systems in PHP, JavaScript (jQuery) and MySQL to designing APIs under hexagonal architecture with object-oriented programming.",
-    "about.p2":"I now develop in Java across several backend layers: REST endpoints, integrations and other ecosystem components. I work in agile environments with Scrum and collaborate on product projects.",
+    "about.p2":"I now develop in Java with Spring Boot: batch processes, REST endpoints and integrations with REST, SOAP and OAuth2 services. I work in Scrum teams.",
     "about.f1k":"Education","about.f1v":"Higher Vocational Web Dev · CIPFP Mislata (2024–26)","about.f2k":"Location","about.f2v":"Valencia, Spain",
-    "about.f3k":"Environment","about.f3v":"Linux (Arch) · Git · Maven","about.f4k":"Languages","about.f4v":"Spanish · English B1–B2",
+    "about.f3k":"Environment","about.f3v":"Git · Maven · Docker · Linux","about.f4k":"Languages","about.f4v":"Spanish · English B1–B2",
     "exp.h":"Experience",
     "exp.1.role":"Java Developer","exp.1.date":"Jun 2026 – present","exp.1.desc":"Java development with Spring Boot across several backend layers.",
     "exp.1.l1":"Batch processes that consume REST and SOAP services, process the data and persist it in a database.",
@@ -30,42 +33,45 @@ const T = {
     "proj.h":"Projects","proj.problem":"Challenge","proj.solution":"Solution",
     "proj.tm.tag":"Bank + store · team project","proj.tm.priv":"Open source · team project",
     "proj.tm.desc":"Two Spring Boot backends talking over HTTP: an online store that charges cards against our own banking API, each with an Angular frontend.",
-    "proj.tm.problem":"Keep the domain apart from infrastructure so the database or HTTP client can change without touching business rules, and test payments without the real bank.",
-    "proj.tm.s1":"controller · usecase · domain · persistence layers, with repositories as domain interfaces.",
-    "proj.tm.s2":"JWT authentication, hashed passwords (password4j) and input validation.",
-    "proj.tm.s3":"Flyway migrations and integration tests with Testcontainers (MariaDB).",
-    "proj.tm.s4":"Dedicated integration module in the store for payments and the HTTP client, isolated and testable.",
+    "proj.tm.problem":"Organise each backend in layers with the domain at the centre, keep persistence and the HTTP client behind interfaces, and be able to test payments without the real bank.",
+    "proj.tm.s1":"Bank: controller · usecase · domain · persistence layers, with use cases for card payment and transfer, JWT authentication and IBAN validation.",
+    "proj.tm.s2":"Store: controller · domain · persistence layers plus an integration module (HTTP client and payment service against the bank); sessions with a Bearer token stored in the database.",
+    "proj.tm.s3":"Both: repositories as domain interfaces implemented in persistence, hashed passwords (password4j) and Bean Validation.",
+    "proj.tm.s4":"Flyway migrations, DAO tests against MariaDB with Testcontainers, and the store's payment tested with mocks.",
     "nav.ai":"AI",
     "ai.h":"Applied AI","ai.tag":"Agent system with Claude Code","ai.priv":"Private code · personal use",
     "ai.lead":"A system that automates my academic day-to-day with AI agents, and through which I learned to use AI with control: specifications, validation and clear limits.",
     "ai.c1":"What it does",
-    "ai.c1.1":"Daily phone summary of deadlines, readings and dates for each subject, written with Claude from the Moodle API.",
-    "ai.c1.2":"Publishes dated tasks to Google Calendar, one calendar per subject.",
-    "ai.c1.3":"Prepares each task's environment (repo, material, brief) and generates notes with Anki cards per unit.",
-    "ai.c1.4":"Runs on its own with a systemd timer.",
+    "ai.c1.1":"Daily phone summary of deadlines and dates for each subject, written with Claude from the Moodle API, plus tasks in Google Calendar.",
+    "ai.c1.2":"Prepares each task's environment (repo, material, brief) and generates notes with Anki cards.",
+    "ai.c1.3":"Runs on its own with a systemd timer.",
     "ai.c2":"How I use AI",
-    "ai.c2.1":"Specification-driven development: specs rule over code, and each task carries a brief and a verifiable acceptance checklist.",
-    "ai.c2.2":"Specialised agents (repo setup, material fetching, environment, notes, validation, publishing) and reusable skills for each workflow.",
-    "ai.c2.3":"Agents by complexity level (search, writing, reasoning) so I never spend more than needed.",
-    "ai.c2.4":"Deterministic first: scripts check whatever can be checked and the model only judges what is semantic.",
+    "ai.c2.1":"Specification-driven development: each task carries a brief and a verifiable acceptance checklist.",
+    "ai.c2.2":"Agents specialised by workflow and by complexity level (search, writing, reasoning), with reusable skills.",
+    "ai.c2.3":"Deterministic first: scripts check whatever can be checked and the model only judges what is semantic.",
     "ai.c3":"Safeguards",
     "ai.c3.1":"Publishing gate: automatic validation, an independent second validator agent (3 rounds max) and a pull request. The AI never pushes to main or merges its own work.",
-    "ai.c3.2":"Credentials only in .env, outside git and logs; platform text is treated as untrusted (prompt injection).",
+    "ai.c3.2":"Credentials only in <code>.env</code>, outside git and logs; platform text is treated as untrusted (prompt injection).",
     "ai.c3.3":"Submitting assignments for me is outside the design.",
-    "ai.env.h":"An environment that replicates",
-    "ai.env.p":"All my projects are mapped in an Obsidian vault and share a global context for Claude Code. A script clones the repos and wires the links on a new PC, and every configuration change also updates its project's map.",
+    "ai.env":"Replicable environment: all my projects share a global context for Claude Code, and a script clones and sets them up on a new PC.",
     "stack.h":"Stack","stack.tools":"Data & tools",
     "contact.h":"Let's talk","contact.p":"A project, an opportunity or a technical question? Write to me."
   }
 };
-const es = {};
-document.querySelectorAll("[data-i18n]").forEach(e => es[e.dataset.i18n] = e.textContent);
+const meta = document.querySelector('meta[name="description"]');
+const es = { "meta.title": document.title, "meta.desc": meta.content };
+document.querySelectorAll("[data-i18n]").forEach(e => es[e.dataset.i18n] = e.hasAttribute("data-html") ? e.innerHTML : e.textContent);
+document.querySelectorAll("[data-i18n-aria]").forEach(e => es[e.dataset.i18nAria] = e.getAttribute("aria-label"));
 T.es = es;
 const btn = document.getElementById("lang");
 function setLang(l){
   document.documentElement.lang = l;
-  document.querySelectorAll("[data-i18n]").forEach(e => { const v = T[l][e.dataset.i18n]; if (v) e.textContent = v; });
-  btn.textContent = l === "es" ? "EN" : "ES";
+  // innerHTML solo en claves marcadas con data-html: el texto sale de este diccionario, nunca de datos externos
+  document.querySelectorAll("[data-i18n]").forEach(e => { const v = T[l][e.dataset.i18n]; if (v) e[e.hasAttribute("data-html") ? "innerHTML" : "textContent"] = v; });
+  document.querySelectorAll("[data-i18n-aria]").forEach(e => e.setAttribute("aria-label", T[l][e.dataset.i18nAria]));
+  document.title = T[l]["meta.title"]; meta.content = T[l]["meta.desc"];
+  const next = l === "es" ? "en" : "es";
+  btn.textContent = next.toUpperCase(); btn.lang = next; btn.title = next === "en" ? "Switch to English" : "Cambiar a español";
   try { localStorage.setItem("lang", l); } catch {}
 }
 let saved; try { saved = localStorage.getItem("lang"); } catch {}

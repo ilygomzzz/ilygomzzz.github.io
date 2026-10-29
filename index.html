@@ -24,15 +24,16 @@
 
 <header class="nav glass" id="top">
   <a class="brand" href="#top" aria-label="Javier Serrano">JS</a>
-  <nav aria-label="Principal">
+  <nav aria-label="Principal" data-i18n-aria="nav.aria">
     <a href="#about" data-i18n="nav.about">Sobre mí</a>
     <a href="#experience" data-i18n="nav.exp">Experiencia</a>
+    <a href="#refs" data-i18n="nav.refs">Referencias</a>
     <a href="#projects" data-i18n="nav.projects">Proyectos</a>
-    <a href="#ai" data-i18n="nav.ai">IA</a>
     <a href="#stack" data-i18n="nav.stack">Stack</a>
+    <a href="#ai" data-i18n="nav.ai">IA</a>
     <a href="#contact" data-i18n="nav.contact">Contacto</a>
   </nav>
-  <button class="lang" id="lang" type="button" aria-label="Change language">EN</button>
+  <button class="lang" id="lang" type="button" lang="en" title="Switch to English">EN</button>
 </header>
 
 <main id="main">
@@ -44,9 +45,10 @@
       <a class="btn primary" href="#projects" data-i18n="hero.cta1">Ver proyectos</a>
       <a class="btn glass" href="mailto:javier.sego04@gmail.com" data-i18n="hero.cta2">Escríbeme</a>
       <a class="btn glass" href="cv.pdf" id="cv" data-i18n="hero.cv">Descargar CV</a>
+      <a class="btn glass" href="https://github.com/ilygomzzz" rel="noopener">GitHub ↗</a>
     </div>
-    <ul class="chips" aria-label="Stack principal">
-      <li>Java 21</li><li>Spring Boot 3</li><li>PHP</li><li>MySQL · MariaDB</li><li>Scrum</li><li>Angular</li>
+    <ul class="chips" aria-label="Stack principal" data-i18n-aria="hero.chips">
+      <li>Java 21</li><li>Spring Boot 3</li><li>REST · SOAP</li><li>OAuth2</li><li>JPA · Flyway</li><li>MariaDB · MySQL</li>
     </ul>
   </section>
 
@@ -55,13 +57,13 @@
     <div class="grid two">
       <article class="card glass">
         <p data-i18n="about.p1">Desarrollador de software con experiencia en backend, desde sistemas CRM a medida en PHP, JavaScript (jQuery) y MySQL hasta el diseño de APIs bajo arquitectura hexagonal con programación orientada a objetos.</p>
-        <p data-i18n="about.p2">Ahora desarrollo en Java en distintas capas del backend: endpoints REST, integraciones y demás componentes del ecosistema. Trabajo en entornos ágiles con Scrum y colaboro en proyectos de producto.</p>
+        <p data-i18n="about.p2">Ahora desarrollo en Java con Spring Boot: procesos batch, endpoints REST e integraciones con servicios REST, SOAP y OAuth2. Trabajo en equipos con Scrum.</p>
       </article>
       <article class="card glass facts">
         <dl>
           <div><dt data-i18n="about.f1k">Formación</dt><dd data-i18n="about.f1v">CFGS DAW · CIPFP Mislata (2024–26)</dd></div>
           <div><dt data-i18n="about.f2k">Ubicación</dt><dd data-i18n="about.f2v">Valencia, España</dd></div>
-          <div><dt data-i18n="about.f3k">Entorno</dt><dd data-i18n="about.f3v">Linux (Arch) · Git · Maven</dd></div>
+          <div><dt data-i18n="about.f3k">Entorno</dt><dd data-i18n="about.f3v">Git · Maven · Docker · Linux</dd></div>
           <div><dt data-i18n="about.f4k">Idiomas</dt><dd data-i18n="about.f4v">Español · Inglés B1–B2</dd></div>
         </dl>
       </article>
@@ -82,7 +84,7 @@
         </ul>
       </li>
       <li class="card glass">
-        <header><h3>Grupo Casfid <small data-i18n="exp.2.role">Desarrollador backend · prácticas</small></h3><span class="pill" data-i18n="exp.2.date">Abr – Jun 2026</span></header>
+        <header><h3>Fever | Casfid <small data-i18n="exp.2.role">Desarrollador backend · prácticas</small></h3><span class="pill" data-i18n="exp.2.date">Abr – Jun 2026</span></header>
         <p data-i18n="exp.2.desc">Equipo de la plataforma de ticketing, control de accesos y cashless, en producción durante eventos reales. Más de treinta tareas cerradas en tres meses.</p>
         <ul class="list">
           <li data-i18n="exp.2.l1">Evolutivos del panel backend cashless: recargas y paquetes de saldo, productos e impuestos, aforos y permisos por rol.</li>
@@ -124,21 +126,30 @@
       <div class="cols">
         <div>
           <h4 data-i18n="proj.problem">Reto</h4>
-          <p data-i18n="proj.tm.problem">Separar el dominio de la infraestructura para poder cambiar la base de datos o el cliente HTTP sin tocar las reglas de negocio, y probar el pago sin depender del banco real.</p>
+          <p data-i18n="proj.tm.problem">Organizar cada backend en capas con el dominio en el centro, dejar la persistencia y el cliente HTTP detrás de interfaces y poder probar el pago sin el banco real.</p>
         </div>
         <div>
           <h4 data-i18n="proj.solution">Solución</h4>
           <ul>
-            <li data-i18n="proj.tm.s1">Capas controller · usecase · domain · persistence, con repositorios como interfaces del dominio.</li>
-            <li data-i18n="proj.tm.s2">Autenticación con JWT, contraseñas con hash (password4j) y validación de entrada.</li>
-            <li data-i18n="proj.tm.s3">Migraciones con Flyway y tests de integración con Testcontainers (MariaDB).</li>
-            <li data-i18n="proj.tm.s4">Módulo de integración propio en la tienda para pagos y cliente HTTP, aislado y testeable.</li>
+            <li data-i18n="proj.tm.s1">Banco: capas controller · usecase · domain · persistence, con casos de uso para pago con tarjeta y transferencia, autenticación JWT y validación de IBAN.</li>
+            <li data-i18n="proj.tm.s2">Tienda: capas controller · domain · persistence y un módulo integration (cliente HTTP y servicio de pago contra el banco); sesiones con token Bearer guardado en base de datos.</li>
+            <li data-i18n="proj.tm.s3">En ambos: repositorios como interfaces del dominio implementadas en persistence, contraseñas con hash (password4j) y Bean Validation.</li>
+            <li data-i18n="proj.tm.s4">Migraciones con Flyway, tests de DAOs contra MariaDB con Testcontainers y el pago de la tienda probado con mocks.</li>
           </ul>
         </div>
       </div>
-      <ul class="chips small"><li>Java 21</li><li>Spring Boot</li><li>JPA</li><li>Flyway</li><li>MariaDB</li><li>Testcontainers</li><li>Angular 20</li></ul>
+      <ul class="chips small"><li>Java 21</li><li>Spring Boot 3</li><li>JPA</li><li>Flyway</li><li>MariaDB</li><li>JWT</li><li>Testcontainers</li><li>Angular 20</li></ul>
       <p class="repos"><a class="pill link" href="https://github.com/Tag-Me-DAW2/bank-backend" rel="noopener">bank-backend ↗</a> <a class="pill link" href="https://github.com/Tag-Me-DAW2/store-backend" rel="noopener">store-backend ↗</a> <a class="pill link" href="https://github.com/Tag-Me-DAW2/bank-frontend" rel="noopener">bank-frontend ↗</a> <a class="pill link" href="https://github.com/Tag-Me-DAW2/store-client-frontend" rel="noopener">store-client ↗</a> <a class="pill link" href="https://github.com/Tag-Me-DAW2/store-admin-frontend" rel="noopener">store-admin ↗</a></p>
     </article>
+  </section>
+
+  <section id="stack" class="block">
+    <h2 data-i18n="stack.h">Stack</h2>
+    <div class="grid three">
+      <article class="card glass"><h3>Backend</h3><p>Java 21 · Spring Boot · Spring Data JPA · REST · SOAP · OAuth2 · JWT · Flyway · PHP</p></article>
+      <article class="card glass"><h3>Frontend</h3><p>Angular · TypeScript · JavaScript</p></article>
+      <article class="card glass"><h3 data-i18n="stack.tools">Datos y herramientas</h3><p>MySQL · MariaDB · Testcontainers · Docker · AWS (EC2, S3) · Git · Maven · Linux</p></article>
+    </div>
   </section>
 
   <section id="ai" class="block">
@@ -153,46 +164,31 @@
         <div>
           <h4 data-i18n="ai.c1">Qué hace</h4>
           <ul class="list">
-            <li data-i18n="ai.c1.1">Resumen diario al móvil de entregas, lecturas y fechas de cada asignatura, redactado con Claude a partir de la API de Moodle.</li>
-            <li data-i18n="ai.c1.2">Publica las tareas con fecha en Google Calendar, un calendario por asignatura.</li>
-            <li data-i18n="ai.c1.3">Prepara el entorno de cada tarea (repo, material, enunciado) y genera apuntes con tarjetas Anki por unidad.</li>
-            <li data-i18n="ai.c1.4">Se ejecuta solo con un temporizador de systemd.</li>
+            <li data-i18n="ai.c1.1">Resumen diario al móvil de entregas y fechas de cada asignatura, redactado con Claude a partir de la API de Moodle, y tareas en Google Calendar.</li>
+            <li data-i18n="ai.c1.2">Prepara el entorno de cada tarea (repo, material, enunciado) y genera apuntes con tarjetas Anki.</li>
+            <li data-i18n="ai.c1.3">Se ejecuta solo con un temporizador de systemd.</li>
           </ul>
         </div>
         <div>
           <h4 data-i18n="ai.c2">Cómo uso la IA</h4>
           <ul class="list">
-            <li data-i18n="ai.c2.1">Desarrollo guiado por especificaciones: mandan sobre el código, y cada tarea lleva un brief y un checklist de aceptación verificable.</li>
-            <li data-i18n="ai.c2.2">Agentes especializados (preparar repo, descargar material, entorno, apuntes, validar, publicar) y skills reutilizables para cada flujo.</li>
-            <li data-i18n="ai.c2.3">Agentes por nivel de complejidad (búsqueda, redacción, razonamiento) para no gastar más de lo necesario.</li>
-            <li data-i18n="ai.c2.4">Lo determinista primero: los scripts comprueban lo comprobable y el modelo solo contrasta lo semántico.</li>
+            <li data-i18n="ai.c2.1">Desarrollo guiado por especificaciones: cada tarea lleva un brief y un checklist de aceptación verificable.</li>
+            <li data-i18n="ai.c2.2">Agentes especializados por flujo y por nivel de complejidad (búsqueda, redacción, razonamiento), con skills reutilizables.</li>
+            <li data-i18n="ai.c2.3">Lo determinista primero: los scripts comprueban lo comprobable y el modelo solo contrasta lo semántico.</li>
           </ul>
         </div>
         <div>
           <h4 data-i18n="ai.c3">Salvaguardas</h4>
           <ul class="list">
             <li data-i18n="ai.c3.1">Puerta de publicación: validación automática, un segundo agente validador independiente (máximo 3 rondas) y pull request. La IA nunca hace push a main ni merge propio.</li>
-            <li data-i18n="ai.c3.2">Credenciales solo en <code>.env</code>, fuera de git y de los logs; el texto de la plataforma se trata como no fiable (inyección de prompts).</li>
+            <li data-i18n="ai.c3.2" data-html>Credenciales solo en <code>.env</code>, fuera de git y de los logs; el texto de la plataforma se trata como no fiable (inyección de prompts).</li>
             <li data-i18n="ai.c3.3">Entregar las tareas por mí queda fuera del diseño.</li>
           </ul>
         </div>
       </div>
+      <p class="note" data-i18n="ai.env">Entorno replicable: todos mis proyectos comparten un contexto global para Claude Code y un script los clona y configura en un PC nuevo.</p>
       <ul class="chips small"><li>Claude Code</li><li>Python</li><li>systemd</li><li>Moodle API</li><li>Google Calendar API</li><li>Anki</li></ul>
     </article>
-    <article class="card glass project">
-      <h3 data-i18n="ai.env.h">Un entorno que se replica</h3>
-      <p data-i18n="ai.env.p">Todos mis proyectos se mapean en un vault de Obsidian y comparten un contexto global para Claude Code. Un script clona los repos y monta los enlaces en un PC nuevo, y cada cambio de configuración actualiza también el mapa de su proyecto.</p>
-      <ul class="chips small"><li>Obsidian</li><li>Git</li><li>Bash</li><li>Arch Linux</li></ul>
-    </article>
-  </section>
-
-  <section id="stack" class="block">
-    <h2 data-i18n="stack.h">Stack</h2>
-    <div class="grid three">
-      <article class="card glass"><h3>Backend</h3><p>Java 21 · Spring Boot · Spring Data JPA · JWT · Flyway · PHP</p></article>
-      <article class="card glass"><h3>Frontend</h3><p>Angular · AngularJS · TypeScript · JavaScript · jQuery</p></article>
-      <article class="card glass"><h3 data-i18n="stack.tools">Datos y herramientas</h3><p>MySQL · MariaDB · Testcontainers · Git · Bitbucket · Maven · Linux</p></article>
-    </div>
   </section>
 
   <section id="contact" class="block contact">
