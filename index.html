@@ -30,15 +30,18 @@
 
 <main id="main">
   <section class="hero">
-    <p class="eyebrow" data-i18n="hero.eyebrow">Valencia · Abierto a ofertas</p>
-    <h1>Javier Serrano<i>.</i></h1>
-    <p class="tagline" data-i18n="hero.tagline">Hago backend en Java. Procuro que no se caiga en producción.</p>
-    <p class="lead" data-i18n="hero.lead">Tres años de backend: empecé con PHP y jQuery en CRMs a medida y ahora escribo Java con Spring Boot. Me gustan las APIs claras y los tests que fallan antes que producción.</p>
-    <div class="cta">
-      <a class="btn primary" href="#projects" data-i18n="hero.cta1">Ver proyectos</a>
-      <a class="btn" href="cv.pdf" id="cv" data-i18n="hero.cv">Descargar CV</a>
-      <a class="btn" href="https://github.com/ilygomzzz" rel="noopener">GitHub ↗</a>
-      <a class="btn" href="https://www.linkedin.com/in/javier-serrano-g%C3%B3mez-5b5916298/" rel="noopener">LinkedIn ↗</a>
+    <div class="hero-stick">
+      <div id="fx"></div>
+      <p class="eyebrow" data-i18n="hero.eyebrow">Valencia · Abierto a ofertas</p>
+      <h1>Javier Serrano<i>.</i></h1>
+      <p class="tagline" data-i18n="hero.tagline">Hago backend en Java. Procuro que no se caiga en producción.</p>
+      <p class="lead" data-i18n="hero.lead">Tres años de backend: empecé con PHP y jQuery en CRMs a medida y ahora escribo Java con Spring Boot. Me gustan las APIs claras y los tests que fallan antes que producción.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects" data-i18n="hero.cta1">Ver proyectos</a>
+        <a class="btn" href="cv.pdf" id="cv" data-i18n="hero.cv">Descargar CV</a>
+        <a class="btn" href="https://github.com/ilygomzzz" rel="noopener">GitHub ↗</a>
+        <a class="btn" href="https://www.linkedin.com/in/javier-serrano-g%C3%B3mez-5b5916298/" rel="noopener">LinkedIn ↗</a>
+      </div>
     </div>
   </section>
 
@@ -208,6 +211,6 @@
 </main>
 
 <footer><small data-i18n="foot">© 2026 Javier Serrano Gómez</small></footer>
-<script src="app.js"></script>
+<script type="module" src="app.js"></script><script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
