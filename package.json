@@ -1,8 +1,0 @@
-{
-  "name": "portfolio",
-  "private": true,
-  "type": "module",
-  "scripts": { "dev": "vite --host", "build": "vite build", "preview": "vite preview --host" },
-  "dependencies": { "react": "^19", "react-dom": "^19", "three": "^0.180" },
-  "devDependencies": { "@vitejs/plugin-react": "^5", "vite": "^7" }
-}
