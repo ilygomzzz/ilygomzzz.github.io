@@ -142,6 +142,17 @@ code{font:13px var(--mono);background:rgba(255,255,255,.09);padding:1px 6px;bord
 footer{padding:46px 0 60px;text-align:center;color:var(--muted)}
 
 .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.js .reveal.in{opacity:1;transform:none;transition:opacity .7s,transform .25s,border-color .25s,box-shadow .25s}
+
+/* portada con scroll: el hero queda fijado y el avance (--p, 0→1) lo pone src/Hero.jsx; sin JS/WebGL/movimiento reducido se queda la portada normal */
+.hero-stick{display:contents}
+#fx canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero.fx-on{height:240svh;min-height:0;padding:0;display:block}
+.fx-on .hero-stick{display:flex;flex-direction:column;justify-content:center;gap:20px;position:sticky;top:0;height:100svh;padding:90px 0 40px}
+.fx-on #fx{position:absolute;inset:0;z-index:-1}
+.fx-on h1{opacity:0}
+.fx-on .eyebrow,.fx-on .tagline{opacity:calc(1 - var(--p)*3);transform:translateY(calc(var(--p)*-40px))}
+.fx-on .lead,.fx-on .cta{opacity:calc((var(--p) - .45)*4);transform:translateY(calc((1 - var(--p))*30px))}
+.fx-on:not(.late) .lead,.fx-on:not(.late) .cta{pointer-events:none}
 @media (max-width:760px){
   .about,.cols,.timeline>li,.stack div{grid-template-columns:1fr;gap:14px}
   .timeline>li{padding:24px 0}.block{padding:64px 0}.card{padding:24px}
