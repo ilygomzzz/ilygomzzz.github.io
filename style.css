@@ -147,28 +147,5 @@ footer{padding:46px 0 60px;text-align:center;color:var(--muted)}
   .timeline>li{padding:24px 0}.block{padding:64px 0}.card{padding:24px}
   .brand{display:none}.nav{gap:8px;padding:0 12px}.nav nav a{padding:8px 8px;font-size:14px}.nav nav a::after{left:8px;right:8px}.nav nav{mask-image:linear-gradient(90deg,#000 88%,transparent)}
 }
-/* móvil táctil: una "diapositiva" por pantalla (hero, cada bloque, trabajo, proyecto...) con snap obligatorio, tipo reels.
-   Las que no caben en una pantalla se desplazan por dentro y luego saltan a la siguiente. Para volver al scroll normal, quitar este bloque. */
-@media (max-width:760px) and (hover:none){
-  /* rendimiento en iOS: fondo estático, sin capas de mezcla/ruido ni desenfoques que se repintan en cada frame */
-  html::before,html::after{display:none}
-  body::before{animation:none;inset:0}
-  .nav,.card{-webkit-backdrop-filter:none;backdrop-filter:none}
-  .nav{background:rgba(2,5,11,.94)}
-  html{scroll-snap-type:y mandatory;scroll-padding-top:62px;scroll-behavior:auto}
-  .marquee{display:none}
-  .hero{min-height:100svh;scroll-snap-align:start;scroll-snap-stop:always}
-  .block{padding:0;min-height:0}
-  .block>h2{position:absolute;top:18px;left:0;right:0;margin:0}
-  .timeline{display:contents}
-  .block:not(.contact)>:not(h2):not(.timeline),.timeline>li,.contact{min-height:calc(100svh - 62px);padding:64px 0 28px;display:flex;flex-direction:column;justify-content:center;gap:18px;scroll-snap-align:start;scroll-snap-stop:always}
-  .block:not(.contact)>.card,.quote{margin:0}
-  .contact h2{position:static}
-  .contact>*{flex:none}
-  footer{scroll-snap-align:end}
-  .js .reveal{transform:translateY(28px);transition-duration:.5s}
-  .nav::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--grad);transform-origin:0 50%;transform:scaleX(0);animation:prog linear both;animation-timeline:scroll(root)}
-}
-@keyframes prog{to{transform:scaleX(1)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
 @media print{.nav,.marquee{display:none}body::before,body::after,html::before,html::after{display:none}.js .reveal{opacity:1;transform:none}body{background:#fff;color:#000}h1{color:#000;background:none}p,li,h1,h2,h3,.tagline{color:#000}}
