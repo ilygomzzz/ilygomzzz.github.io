@@ -171,28 +171,16 @@
     </article>
     <article class="card">
       <header>
-        <h3>desk-ui <span data-i18n="ai.p.tag">Quickshell/QML · SDD con agentes · código privado</span></h3>
+        <h3>desk-ui <span data-i18n="ai.p.tag">Un equipo de agentes con roles · SDD · código privado</span></h3>
       </header>
-      <p data-i18n="ai.p.lead">Todo el escritorio de mi Arch (barra, gadgets, lanzador, pantalla de bloqueo) escrito en QML y desarrollado con un equipo de agentes con roles. Vive junto a Personalization, mis dotfiles reproducibles.</p>
-      <div class="cols">
-        <div>
-          <h4 data-i18n="ai.p.c1">Qué hay</h4>
-          <ul>
-            <li data-i18n="ai.p.c1.1">Unas 19.000 líneas de QML en 137 archivos y 36 specs: barra, calendario, tiempo, pomodoro, reproductor y monitor del sistema.</li>
-            <li data-i18n="ai.p.c1.2">Pantalla de bloqueo propia con PAM, historial de notificaciones con reglas por app y editor de capturas y grabación.</li>
-            <li data-i18n="ai.p.c1.3">Menú de personalización con tema por monitor y por ventana, y interfaz en español e inglés.</li>
-          </ul>
-        </div>
-        <div>
-          <h4 data-i18n="ai.p.c2">Cómo lo organizo</h4>
-          <ul>
-            <li data-i18n="ai.p.c2.1" data-html>Flujo SDD con cuatro agentes: <code>designer</code> escribe spec y diseño, yo doy el OK, <code>implementer</code> programa y <code>reviewer</code> y <code>auditor</code> revisan en paralelo.</li>
-            <li data-i18n="ai.p.c2.2">Una constitución con invariantes (tokens, tipografía, rendimiento) que ninguna spec puede contradecir sin mi permiso.</li>
-            <li data-i18n="ai.p.c2.3">Primero decido el tamaño del cambio para no gastar el flujo completo en algo pequeño.</li>
-            <li data-i18n="ai.p.c2.4">Nada está hecho hasta verificarlo en la sesión viva con una captura.</li>
-          </ul>
-        </div>
-      </div>
+      <p data-i18n="ai.p.lead">Mi escritorio de Arch hecho en QML (barra, gadgets, bloqueo) es el proyecto donde afino cómo trabajo con un equipo de agentes: cada cambio pasa por el mismo flujo y cada agente solo hace su parte.</p>
+      <ol class="flow">
+        <li><b data-i18n="ai.p.f1h">Primero la spec</b><p data-i18n="ai.p.f1" data-html>Antes de tocar código, el agente <code>designer</code> escribe la spec (qué y por qué, criterios) y el diseño con medidas. Yo doy el OK; sin OK no se implementa.</p></li>
+        <li><b data-i18n="ai.p.f2h">Un agente, un rol</b><p data-i18n="ai.p.f2">Diseñador, implementador, revisor y auditor, cada uno con su skill propia, sus herramientas mínimas y el modelo que le toca: Opus para diseñar, Sonnet para el resto.</p></li>
+        <li><b data-i18n="ai.p.f3h">Revisión en paralelo</b><p data-i18n="ai.p.f3">El revisor comprueba el resultado contra la spec con capturas reales; el auditor mide seguridad y rendimiento. Ninguno arregla nada: devuelven órdenes concretas al implementador. Hasta 2 rondas.</p></li>
+        <li><b data-i18n="ai.p.f4h">Reglas que no se saltan</b><p data-i18n="ai.p.f4">Una constitución de invariantes que ninguna spec puede contradecir sin mi permiso, y el tamaño del cambio decide si hace falta el flujo completo o uno reducido para ahorrar tokens.</p></li>
+      </ol>
+      <p class="chips"><span class="chip">Claude Code</span><span class="chip">Subagentes</span><span class="chip">Skills</span><span class="chip">SDD</span><span class="chip">Quickshell / QML</span></p>
     </article>
   </section>
 
